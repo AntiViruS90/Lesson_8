@@ -1,0 +1,17 @@
+a {
+    display: block;
+}
+
+table{
+    border: 4px double #ccc;
+    width: 300px;
+    background:cadetblue;
+    text-align: center;
+}
+table td{
+    border: 2px dotted #ccc;
+    padding: 4px 10px;
+}
+table tr th{
+    background: burlywood;
+}

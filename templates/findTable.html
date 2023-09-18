@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Find</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+    <body>
+    <h2>Table</h2>
+        <table>
+            <tr>
+                {% for t in title %}
+                    <th>{{ t }}</th>
+                {% endfor %}
+            </tr>
+            {% for t in table %}
+            <tr>
+                {% for one in t %}
+                <td>{{ one }}</td>
+                {% endfor %}
+            </tr>
+            {% endfor %}
+        </table>
+
+    <form action="" method="post">
+        {% csrf_token %}
+        {{ form }}
+        <input type="submit" value="FIND">
+    </form>
+    </body>
+</html>

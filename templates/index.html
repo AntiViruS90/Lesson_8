@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+    <body>
+        <h1>Main page</h1>
+        <a href="{% url 'sv1' %}">Firm-Product</a>
+        <a href="{% url 'sv2' %}">Student-Learn</a>
+        <a href="{% url 'sv3' %}">User-Account</a>
+        <a href="{% url 'add1' %}"><button>ADD</button></a>
+    </body>
+</html>
