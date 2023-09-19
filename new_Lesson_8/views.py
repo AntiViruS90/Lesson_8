@@ -62,11 +62,11 @@ def table1(request):
         else:               # Если не выбрано ничего, таблица показывает все данные
             base = Product.objects.all()
     for i in base:
-        database.append([i.name, i.price, i.firm.title])
+        database.append([i.name, i.price, i.firm.title, i.ammount, i.package, i.recommendation])
         # database.append(i.price)
         # database.append(i.firm.title)
     print(database)
-    title = ['Name', 'Price', 'Firm']   # Строка с заголовком в HTML
+    title = ['Name', 'Price', 'Firm', 'Ammount', 'Package', 'Recommendation']   # Строка с заголовком в HTML
     # if request.POST:
     #     a = request.POST['firm']
     #     base = Product.objects.filter(firm_id=a)

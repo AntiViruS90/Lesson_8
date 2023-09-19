@@ -15,6 +15,9 @@ class Company(m.Model):
 class Product(m.Model):
     name = m.CharField(max_length=30)
     price = m.IntegerField()
+    ammount = m.CharField(max_length=5, null=True)
+    package = m.CharField(max_length=30, null=True)
+    recommendation = m.BooleanField(default=False)
     firm = m.ForeignKey(Company, on_delete=m.CASCADE)
 
     def __str__(self):
