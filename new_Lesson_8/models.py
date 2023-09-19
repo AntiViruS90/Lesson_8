@@ -39,7 +39,6 @@ class Student(m.Model):
     name = m.CharField(max_length=50)
     group = m.CharField(max_length=4)
     course = m.ManyToManyField(Course)  # В Database создаёт третью таблицу
-
     # с ключевыми значениями студент-id и курс-id
 
     def __str__(self):

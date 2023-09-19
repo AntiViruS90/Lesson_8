@@ -12,7 +12,16 @@ class FormJuice(f.Form):
     # product = f.ModelChoiceField(Product.objects.all())
     firm = f.ModelChoiceField(Company.objects.all(), required=False)
     juice = f.ModelChoiceField(Product.objects.all(), required=False)
-    print(firm)
+
+
+
+class StudentForm(f.Form):
+    new_mas = []
+    courses = Course.objects.all()
+    for course in courses:
+        new_mas.append((course.id, course.title))
+    student = f.ModelChoiceField(Student.objects.all(), required=False)
+    course = f.ModelChoiceField(Course.objects.all(), required=False)
 
 
 class UserForm(f.Form):

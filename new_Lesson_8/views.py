@@ -79,18 +79,25 @@ def table1(request):
 
 def table2(request):
     base = Student.objects.all()
-    form = ''
+    form = StudentForm()
     database = []
+    if request.POST:
+        form = StudentForm(request.POST)
+        student = request.POST['student']
+        course = request.POST['course']
+        search = {}
+        if course:
+            search.update({'course': course})
+        if student:
+            search.update({'id': student})
+        base = Student.objects.filter(**search)
     for i in base:
-        temp = i.course.all()
-        courses = ''
-        for t in temp:
-            courses += t.title + ' '
+        courses = ', '.join(i.course.values_list('title', flat=True))
         database.append([i.name, i.group, courses])
     title = ['Name', 'Group', 'Course']
     context = {'table': database, 'title': title, 'form': form}
     return render(request, 'findTable.html', context=context)
-pass
+    pass
 
 
 def table3(request):
@@ -108,6 +115,7 @@ def table3(request):
     context = {'table': database, 'title': title, 'form': form}
     return render(request, 'findTable.html', context=context)
     pass
+
 
 
 def find(request):
